@@ -1,0 +1,2397 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Green School | โรงเรียนศรีเมืองวิทยาคาร</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --green:#159957;
+    --green-dark:#087f46;
+    --green-light:#dff8e9;
+
+    --purple:#652d90;
+    --purple-dark:#45206b;
+    --purple-light:#eee3f7;
+
+    --yellow:#ffd83d;
+    --yellow-dark:#e5b900;
+
+    --white:#ffffff;
+    --text:#26332d;
+    --muted:#6d7772;
+    --bg:#f4f8f5;
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+    --radius:22px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Kanit',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+button{
+    font-family:inherit;
+}
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+
+    height:76px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(15px);
+
+    border-bottom:3px solid var(--yellow);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 5%;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+}
+
+.brand-logos{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.logo{
+    width:43px;
+    height:43px;
+    border-radius:50%;
+    object-fit:contain;
+    background:white;
+    border:2px solid var(--purple);
+    padding:3px;
+}
+
+.brand-text{
+    line-height:1.15;
+}
+
+.brand-text strong{
+    display:block;
+    color:var(--purple);
+    font-size:17px;
+}
+
+.brand-text span{
+    font-size:11px;
+    color:var(--green-dark);
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+}
+
+.nav-links button{
+    border:none;
+    background:transparent;
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer;
+    color:#4e5954;
+    font-size:14px;
+    transition:.25s;
+}
+
+.nav-links button:hover{
+    background:var(--purple-light);
+    color:var(--purple);
+}
+
+.mobile-menu{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+    min-height:720px;
+    padding:130px 7% 80px;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(21,153,87,.96),
+            rgba(101,45,144,.94)
+        );
+    
+    color:white;
+
+    display:flex;
+    align-items:center;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    background:rgba(255,216,61,.12);
+    right:-150px;
+    top:-200px;
+}
+
+.hero-content{
+    max-width:700px;
+    position:relative;
+    z-index:2;
+}
+
+.school-name{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:rgba(255,255,255,.14);
+    border:1px solid rgba(255,255,255,.3);
+
+    padding:8px 15px;
+    border-radius:30px;
+
+    margin-bottom:18px;
+
+    font-size:16px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,82px);
+    line-height:1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:var(--yellow);
+}
+
+.hero h2{
+    font-size:26px;
+    font-weight:400;
+    margin-bottom:20px;
+}
+
+.hero p{
+    font-size:17px;
+    line-height:1.8;
+    opacity:.92;
+    max-width:650px;
+}
+
+.hero-buttons{
+    margin-top:30px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:none;
+    padding:13px 23px;
+    border-radius:14px;
+    cursor:pointer;
+    font-size:15px;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--yellow);
+    color:#392d00;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+}
+
+.btn-white{
+    background:white;
+    color:var(--purple);
+}
+
+.btn-white:hover{
+    transform:translateY(-3px);
+}
+
+/* SCHOOL LOGOS */
+
+.hero-logos{
+    position:absolute;
+    right:8%;
+    top:125px;
+
+    display:flex;
+    gap:18px;
+
+    z-index:3;
+}
+
+.big-logo{
+    width:110px;
+    height:110px;
+
+    background:white;
+    border-radius:25px;
+    padding:10px;
+
+    object-fit:contain;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.2);
+
+    animation:float 4s ease-in-out infinite;
+}
+
+.big-logo:nth-child(2){
+    animation-delay:1s;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-12px)}
+}
+
+/* HERO SCENE */
+
+.scene{
+    position:absolute;
+    right:4%;
+    bottom:0;
+
+    width:480px;
+    height:350px;
+}
+
+.sun{
+    position:absolute;
+    right:90px;
+    top:10px;
+
+    width:90px;
+    height:90px;
+
+    background:var(--yellow);
+    border-radius:50%;
+
+    box-shadow:0 0 45px rgba(255,216,61,.65);
+
+    animation:sunPulse 4s infinite;
+}
+
+@keyframes sunPulse{
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+.cloud{
+    position:absolute;
+    width:100px;
+    height:30px;
+    background:white;
+    border-radius:50px;
+    opacity:.85;
+    animation:cloudMove 18s linear infinite;
+}
+
+.cloud::before,
+.cloud::after{
+    content:"";
+    position:absolute;
+    background:white;
+    border-radius:50%;
+}
+
+.cloud::before{
+    width:45px;
+    height:45px;
+    left:20px;
+    bottom:5px;
+}
+
+.cloud::after{
+    width:55px;
+    height:55px;
+    right:15px;
+    bottom:0;
+}
+
+.cloud.one{
+    left:20px;
+    top:55px;
+}
+
+.cloud.two{
+    left:230px;
+    top:120px;
+    animation-delay:7s;
+}
+
+@keyframes cloudMove{
+    0%{transform:translateX(-30px)}
+    50%{transform:translateX(40px)}
+    100%{transform:translateX(-30px)}
+}
+
+.school-building{
+    position:absolute;
+    bottom:0;
+    left:100px;
+
+    width:270px;
+    height:180px;
+
+    background:#f8f8f8;
+    border-radius:8px 8px 0 0;
+
+    border-top:12px solid var(--purple);
+
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+.roof{
+    position:absolute;
+    top:-35px;
+    left:-25px;
+
+    width:320px;
+    height:40px;
+
+    background:var(--yellow);
+
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+.windows{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    padding:30px 25px;
+}
+
+.window{
+    height:45px;
+    background:#bdebd1;
+    border:4px solid var(--purple);
+    border-radius:5px;
+}
+
+.door{
+    position:absolute;
+    bottom:0;
+    left:112px;
+
+    width:50px;
+    height:85px;
+
+    background:var(--purple);
+    border-radius:8px 8px 0 0;
+}
+
+.tree{
+    position:absolute;
+    bottom:0;
+    width:80px;
+    height:150px;
+}
+
+.tree::before{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:35px;
+
+    width:15px;
+    height:80px;
+
+    background:#795548;
+}
+
+.tree::after{
+    content:"🌳";
+    position:absolute;
+    top:0;
+    left:0;
+
+    font-size:85px;
+}
+
+.tree.left{
+    left:10px;
+}
+
+.tree.right{
+    right:20px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:90px 7%;
+}
+
+.section-head{
+    text-align:center;
+    max-width:760px;
+    margin:0 auto 50px;
+}
+
+.section-head .tag{
+    display:inline-block;
+
+    padding:7px 15px;
+    border-radius:20px;
+
+    background:var(--purple-light);
+    color:var(--purple);
+
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.section-head h2{
+    font-size:38px;
+    color:var(--purple-dark);
+    margin-bottom:12px;
+}
+
+.section-head p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.stat{
+    background:white;
+    padding:30px;
+    border-radius:var(--radius);
+
+    box-shadow:var(--shadow);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.stat::after{
+    content:"";
+    position:absolute;
+    width:90px;
+    height:90px;
+    right:-25px;
+    top:-25px;
+
+    border-radius:50%;
+    background:var(--green-light);
+}
+
+.stat h3{
+    font-size:42px;
+    color:var(--green-dark);
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+/* BUILDINGS */
+
+.buildings{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:16px;
+}
+
+.building-card{
+    background:white;
+    border-radius:20px;
+    padding:24px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+    border-top:5px solid var(--green);
+}
+
+.building-card:hover{
+    transform:translateY(-7px);
+}
+
+.building-number{
+    font-size:35px;
+    font-weight:700;
+    color:var(--purple);
+}
+
+.building-card h3{
+    margin-bottom:8px;
+}
+
+.progress{
+    height:9px;
+    background:#edf0ee;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        var(--green),
+        var(--yellow)
+    );
+    border-radius:20px;
+}
+
+/* PROBLEM */
+
+.problem-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.problem-card{
+    padding:30px;
+    background:white;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+}
+
+.problem-icon{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.problem-card h3{
+    color:var(--purple);
+    margin-bottom:8px;
+}
+
+.problem-card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* SOLUTIONS */
+
+.solution-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.solution{
+    background:white;
+    border-radius:24px;
+    padding:30px;
+
+    box-shadow:var(--shadow);
+
+    display:flex;
+    gap:20px;
+}
+
+.solution-number{
+    min-width:52px;
+    height:52px;
+
+    border-radius:15px;
+
+    background:var(--purple);
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:22px;
+    font-weight:bold;
+}
+
+.solution h3{
+    color:var(--purple-dark);
+    margin-bottom:7px;
+}
+
+.solution p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* MOTIVATION */
+
+.motivation{
+    background:
+        linear-gradient(
+            135deg,
+            #f2fff7,
+            #f8f0ff
+        );
+}
+
+.reward-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.reward{
+    background:white;
+    border-radius:22px;
+    padding:30px;
+    text-align:center;
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.reward:hover{
+    transform:translateY(-7px);
+}
+
+.reward-icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.reward h3{
+    color:var(--purple);
+    margin-bottom:8px;
+}
+
+.reward p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* TIMELINE */
+
+.timeline{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+}
+
+.timeline::before{
+    content:"";
+    position:absolute;
+
+    left:28px;
+    top:0;
+    bottom:0;
+
+    width:4px;
+
+    background:linear-gradient(
+        var(--green),
+        var(--purple),
+        var(--yellow)
+    );
+}
+
+.timeline-item{
+    position:relative;
+
+    display:flex;
+    gap:25px;
+
+    margin-bottom:35px;
+}
+
+.timeline-dot{
+    min-width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    background:var(--purple);
+    color:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:bold;
+
+    z-index:2;
+
+    border:5px solid var(--bg);
+}
+
+.timeline-content{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+    flex:1;
+}
+
+.timeline-content h3{
+    color:var(--purple);
+    margin-bottom:8px;
+}
+
+.timeline-content p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.timeline-content ul{
+    margin-top:12px;
+    padding-left:20px;
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* INDICATORS */
+
+.indicator-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.indicator{
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:var(--shadow);
+}
+
+.indicator h3{
+    color:var(--purple);
+    margin-bottom:10px;
+}
+
+.indicator p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+/* DETAIL */
+
+.detail-page{
+    display:none;
+    padding:120px 7% 80px;
+    min-height:100vh;
+}
+
+.detail-page.active{
+    display:block;
+}
+
+.detail-box{
+    max-width:1000px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:var(--shadow);
+}
+
+.back-btn{
+    border:none;
+    background:var(--purple-light);
+    color:var(--purple);
+    padding:10px 18px;
+    border-radius:12px;
+    cursor:pointer;
+    margin-bottom:25px;
+}
+
+.detail-box h1{
+    color:var(--purple-dark);
+    margin-bottom:15px;
+}
+
+.detail-box p,
+.detail-box li{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+.detail-box ul{
+    padding-left:25px;
+}
+
+/* FOOTER */
+
+footer{
+    background:
+        linear-gradient(
+            135deg,
+            var(--purple-dark),
+            var(--green-dark)
+        );
+
+    color:white;
+
+    padding:45px 7%;
+
+    text-align:center;
+}
+
+.footer-logos{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.footer-logos img{
+    width:70px;
+    height:70px;
+
+    background:white;
+    padding:7px;
+
+    border-radius:18px;
+    object-fit:contain;
+}
+
+footer h2{
+    margin-bottom:8px;
+}
+
+footer p{
+    opacity:.8;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .hero{
+        min-height:850px;
+    }
+
+    .hero-logos{
+        top:auto;
+        bottom:420px;
+        left:7%;
+        right:auto;
+    }
+
+    .scene{
+        transform:scale(.8);
+        transform-origin:bottom right;
+        right:-20px;
+    }
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .buildings{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .problem-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .reward-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .indicator-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px){
+
+    .navbar{
+        height:68px;
+        padding:0 4%;
+    }
+
+    .logo{
+        width:36px;
+        height:36px;
+    }
+
+    .brand-text strong{
+        font-size:13px;
+    }
+
+    .brand-text span{
+        font-size:9px;
+    }
+
+    .hero{
+        padding:110px 6% 50px;
+        min-height:800px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero h2{
+        font-size:21px;
+    }
+
+    .hero-logos{
+        top:100px;
+        bottom:auto;
+    }
+
+    .big-logo{
+        width:75px;
+        height:75px;
+    }
+
+    .hero-content{
+        margin-top:120px;
+    }
+
+    .scene{
+        transform:scale(.65);
+        right:-100px;
+    }
+
+    section{
+        padding:65px 6%;
+    }
+
+    .section-head h2{
+        font-size:30px;
+    }
+
+    .stats,
+    .buildings,
+    .problem-grid,
+    .solution-grid,
+    .reward-grid,
+    .indicator-grid{
+        grid-template-columns:1fr;
+    }
+
+    .detail-box{
+        padding:25px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="brand" onclick="goHome()">
+
+        <div class="brand-logos">
+
+            <img
+                src="school-logo.png"
+                class="logo"
+                alt="โลโก้โรงเรียน"
+            >
+
+            <img
+                src="council-logo.png"
+                class="logo"
+                alt="โลโก้สภานักเรียน"
+            >
+
+        </div>
+
+        <div class="brand-text">
+            <strong>Green School</strong>
+            <span>โรงเรียนศรีเมืองวิทยาคาร</span>
+        </div>
+
+    </div>
+
+    <div class="nav-links">
+
+        <button onclick="goHome()">หน้าหลัก</button>
+
+        <button onclick="showPage('data')">
+            ข้อมูล
+        </button>
+
+        <button onclick="showPage('system')">
+            ระบบขยะ
+        </button>
+
+        <button onclick="showPage('solutions')">
+            แนวทาง
+        </button>
+
+        <button onclick="showPage('motivation')">
+            แรงจูงใจ
+        </button>
+
+        <button onclick="showPage('plan')">
+            แผนงาน
+        </button>
+
+    </div>
+
+    <div class="mobile-menu" onclick="toggleMenu()">
+        ☰
+    </div>
+
+</nav>
+
+
+<!-- HOME -->
+
+<main id="home">
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="school-name">
+            🏫 โรงเรียนศรีเมืองวิทยาคาร
+        </div>
+
+        <h1>
+            GREEN<br>
+            <span>SCHOOL</span>
+        </h1>
+
+        <h2>
+            โรงเรียนสะอาด เริ่มต้นจากทุกคน
+        </h2>
+
+        <p>
+            แนวทางการพัฒนาระบบจัดการขยะและความสะอาด
+            จากข้อมูลการตรวจจริง พร้อมสร้างแรงจูงใจให้นักเรียน
+            มีส่วนร่วมในการดูแลโรงเรียนอย่างต่อเนื่อง
+        </p>
+
+        <div class="hero-buttons">
+
+            <button
+                class="btn btn-primary"
+                onclick="document.getElementById('data-section').scrollIntoView()"
+            >
+                📊 ดูข้อมูลและสถิติ
+            </button>
+
+            <button
+                class="btn btn-white"
+                onclick="showPage('solutions')"
+            >
+                💡 ดูแนวทางแก้ไข
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-logos">
+
+        <img
+            src="school-logo.png"
+            class="big-logo"
+            alt="โลโก้โรงเรียน"
+        >
+
+        <img
+            src="council-logo.png"
+            class="big-logo"
+            alt="โลโก้สภานักเรียน"
+        >
+
+    </div>
+
+
+    <div class="scene">
+
+        <div class="sun"></div>
+
+        <div class="cloud one"></div>
+        <div class="cloud two"></div>
+
+        <div class="tree left"></div>
+        <div class="tree right"></div>
+
+        <div class="school-building">
+
+            <div class="roof"></div>
+
+            <div class="windows">
+
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+                <div class="window"></div>
+
+            </div>
+
+            <div class="door"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DATA -->
+
+<section id="data-section">
+
+    <div class="section-head">
+
+        <span class="tag">
+            📊 DATA
+        </span>
+
+        <h2>
+            ข้อมูลจากการตรวจความสะอาด
+        </h2>
+
+        <p>
+            ข้อมูลช่วงเดือนสิงหาคม–กันยายน 2569
+            ใช้เป็นพื้นฐานในการวางแผนแก้ไขปัญหา
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>81</h3>
+            <p>จำนวนครั้งที่ตรวจทั้งหมด</p>
+        </div>
+
+        <div class="stat">
+            <h3>46</h3>
+            <p>ครั้งที่พบปัญหา</p>
+        </div>
+
+        <div class="stat">
+            <h3>35</h3>
+            <p>ครั้งที่เรียบร้อย</p>
+        </div>
+
+        <div class="stat">
+            <h3>56.8%</h3>
+            <p>สัดส่วนครั้งที่พบปัญหา</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- BUILDINGS -->
+
+<section>
+
+    <div class="section-head">
+
+        <span class="tag">
+            🏫 BUILDINGS
+        </span>
+
+        <h2>
+            ภาพรวมแต่ละอาคาร
+        </h2>
+
+        <p>
+            ใช้ข้อมูลเพื่อดูว่าบริเวณใดควรได้รับการแก้ไขก่อน
+            โดยไม่ตัดสินจากการตรวจเพียงครั้งเดียว
+        </p>
+
+    </div>
+
+
+    <div class="buildings">
+
+        <div class="building-card">
+
+            <div class="building-number">1</div>
+
+            <h3>อาคาร 1</h3>
+
+            <p>
+                พบปัญหา 10 จาก 19 ครั้ง
+            </p>
+
+            <div class="progress">
+                <div
+                    class="progress-bar"
+                    style="width:52.6%"
+                ></div>
+            </div>
+
+            <small>52.6%</small>
+
+        </div>
+
+
+        <div class="building-card">
+
+            <div class="building-number">2</div>
+
+            <h3>อาคาร 2</h3>
+
+            <p>
+                พบปัญหา 16 จาก 19 ครั้ง
+            </p>
+
+            <div class="progress">
+                <div
+                    class="progress-bar"
+                    style="width:84.2%"
+                ></div>
+            </div>
+
+            <small>84.2%</small>
+
+        </div>
+
+
+        <div class="building-card">
+
+            <div class="building-number">3</div>
+
+            <h3>อาคาร 3</h3>
+
+            <p>
+                พบปัญหา 0 จาก 9 ครั้ง
+            </p>
+
+            <div class="progress">
+                <div
+                    class="progress-bar"
+                    style="width:0%"
+                ></div>
+            </div>
+
+            <small>0%</small>
+
+        </div>
+
+
+        <div class="building-card">
+
+            <div class="building-number">4</div>
+
+            <h3>อาคาร 4</h3>
+
+            <p>
+                พบปัญหา 4 จาก 9 ครั้ง
+            </p>
+
+            <div class="progress">
+                <div
+                    class="progress-bar"
+                    style="width:44.4%"
+                ></div>
+            </div>
+
+            <small>44.4%</small>
+
+        </div>
+
+
+        <div class="building-card">
+
+            <div class="building-number">5</div>
+
+            <h3>อาคาร 5</h3>
+
+            <p>
+                พบปัญหา 16 จาก 25 ครั้ง
+            </p>
+
+            <div class="progress">
+                <div
+                    class="progress-bar"
+                    style="width:64%"
+                ></div>
+            </div>
+
+            <small>64%</small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROBLEMS -->
+
+<section>
+
+    <div class="section-head">
+
+        <span class="tag">
+            🔎 PROBLEMS
+        </span>
+
+        <h2>
+            ปัญหาที่พบ
+        </h2>
+
+        <p>
+            ปัญหาไม่ได้มีแค่เรื่องขยะ แต่เกี่ยวข้องกับ
+            พฤติกรรม การจัดการ และระบบภายในโรงเรียน
+        </p>
+
+    </div>
+
+
+    <div class="problem-grid">
+
+        <div class="problem-card">
+
+            <div class="problem-icon">🗑️</div>
+
+            <h3>ขยะสะสม</h3>
+
+            <p>
+                มีขยะตกค้างในบางพื้นที่
+                โดยเฉพาะบริเวณที่มีการใช้งานมาก
+            </p>
+
+        </div>
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon">♻️</div>
+
+            <h3>ถังขยะเต็มเร็ว</h3>
+
+            <p>
+                บางจุดมีปริมาณขยะมาก
+                ทำให้ถังเต็มก่อนถึงรอบเก็บ
+            </p>
+
+        </div>
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon">💡</div>
+
+            <h3>ไฟและพัดลม</h3>
+
+            <p>
+                พบการเปิดไฟหรือพัดลมทิ้งไว้
+                แม้ไม่มีคนใช้งาน
+            </p>
+
+        </div>
+
+
+        <div class="problem-card">
+
+            <div class="problem-icon">📦</div>
+
+            <h3>ความเป็นระเบียบ</h3>
+
+            <p>
+                บางพื้นที่มีสิ่งของวางไม่เป็นระเบียบ
+                และอาจส่งผลต่อความปลอดภัย
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MOTIVATION -->
+
+<section class="motivation">
+
+    <div class="section-head">
+
+        <span class="tag">
+            🏆 MOTIVATION
+        </span>
+
+        <h2>
+            สร้างแรงจูงใจให้นักเรียน
+        </h2>
+
+        <p>
+            เน้นการชื่นชมและการมีส่วนร่วม
+            มากกว่าการลงโทษ
+        </p>
+
+    </div>
+
+
+    <div class="reward-grid">
+
+        <div class="reward">
+
+            <div class="reward-icon">🏆</div>
+
+            <h3>
+                ห้องเรียนพัฒนาดีเด่น
+            </h3>
+
+            <p>
+                ชื่นชมห้องที่มีพัฒนาการด้านความสะอาด
+                และความเป็นระเบียบอย่างต่อเนื่อง
+            </p>
+
+        </div>
+
+
+        <div class="reward">
+
+            <div class="reward-icon">📣</div>
+
+            <h3>
+                บอร์ดชื่นชม
+            </h3>
+
+            <p>
+                นำเสนอห้องหรือกลุ่มนักเรียน
+                ที่ช่วยดูแลพื้นที่ส่วนรวม
+            </p>
+
+        </div>
+
+
+        <div class="reward">
+
+            <div class="reward-icon">💡</div>
+
+            <h3>
+                เปิดรับไอเดีย
+            </h3>
+
+            <p>
+                ให้นักเรียนเสนอวิธีลดขยะ
+                หรือปรับปรุงระบบในโรงเรียน
+            </p>
+
+        </div>
+
+
+        <div class="reward">
+
+            <div class="reward-icon">🌱</div>
+
+            <h3>
+                คะแนนพัฒนาการ
+            </h3>
+
+            <p>
+                ดูจากการเปลี่ยนแปลงเมื่อเทียบกับช่วงก่อนหน้า
+                ไม่ใช่ตัดสินจากวันเดียว
+            </p>
+
+        </div>
+
+
+        <div class="reward">
+
+            <div class="reward-icon">⭐</div>
+
+            <h3>
+                ห้องต้นแบบ
+            </h3>
+
+            <p>
+                นำห้องที่ทำได้ดีมาเป็นตัวอย่าง
+                ให้ห้องอื่นนำไปปรับใช้
+            </p>
+
+        </div>
+
+
+        <div class="reward">
+
+            <div class="reward-icon">🤝</div>
+
+            <h3>
+                ทำให้เป็นทีม
+            </h3>
+
+            <p>
+                ส่งเสริมให้นักเรียนช่วยกันดูแลพื้นที่
+                มากกว่าการโยนความรับผิดชอบให้คนใดคนหนึ่ง
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PLAN -->
+
+<section>
+
+    <div class="section-head">
+
+        <span class="tag">
+            📅 4-WEEK PLAN
+        </span>
+
+        <h2>
+            แผนดำเนินงาน 4 สัปดาห์
+        </h2>
+
+        <p>
+            ทดลองจากพื้นที่จริง เก็บข้อมูลจริง
+            แล้วค่อยขยายวิธีที่ได้ผล
+        </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                01
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    สัปดาห์ที่ 1 — สำรวจ
+                </h3>
+
+                <p>
+                    เก็บข้อมูลเพิ่มเติมเพื่อหาจุดที่มีปัญหาบ่อย
+                </p>
+
+                <ul>
+
+                    <li>
+                        สำรวจจุดที่ถังขยะเต็มเร็ว
+                    </li>
+
+                    <li>
+                        บันทึกจุดที่มีขยะตกค้าง
+                    </li>
+
+                    <li>
+                        ดูช่วงเวลาที่ขยะเพิ่มขึ้นมาก
+                    </li>
+
+                    <li>
+                        รวบรวมความคิดเห็นจากนักเรียน
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                02
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    สัปดาห์ที่ 2 — ทดลองมาตรการ
+                </h3>
+
+                <p>
+                    เลือกพื้นที่นำร่อง 1–2 จุด
+                    แล้วทดลองวิธีแก้ไข
+                </p>
+
+                <ul>
+
+                    <li>
+                        เลือกจุดที่พบปัญหาขยะบ่อย
+                    </li>
+
+                    <li>
+                        บันทึกจำนวนครั้งที่ถังเต็ม
+                    </li>
+
+                    <li>
+                        ทดลองปรับเวลาหรือรอบรวบรวมขยะ
+                    </li>
+
+                    <li>
+                        ส่งเสริมการแยกขยะ
+                    </li>
+
+                    <li>
+                        ทดลองลดขยะต้นทาง
+                    </li>
+
+                    <li>
+                        บันทึกผลรายวัน
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                03
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    สัปดาห์ที่ 3 — ปรับระบบ
+                </h3>
+
+                <p>
+                    นำข้อมูลจากการทดลองมาแก้ไขวิธีการ
+                    ให้เหมาะกับแต่ละพื้นที่
+                </p>
+
+                <ul>
+
+                    <li>
+                        ปรับจุดวางถังขยะ
+                    </li>
+
+                    <li>
+                        ปรับรอบการรวบรวม
+                    </li>
+
+                    <li>
+                        เพิ่มการสื่อสารเรื่องการแยกขยะ
+                    </li>
+
+                    <li>
+                        ขยายวิธีที่ได้ผลไปยังจุดอื่น
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot">
+                04
+            </div>
+
+            <div class="timeline-content">
+
+                <h3>
+                    สัปดาห์ที่ 4 — ประเมินผล
+                </h3>
+
+                <p>
+                    เปรียบเทียบข้อมูลก่อนและหลังการทดลอง
+                </p>
+
+                <ul>
+
+                    <li>
+                        จำนวนครั้งที่ถังเต็ม
+                    </li>
+
+                    <li>
+                        จำนวนจุดที่มีขยะตกค้าง
+                    </li>
+
+                    <li>
+                        ปริมาณขยะรีไซเคิล
+                    </li>
+
+                    <li>
+                        ผลตรวจความสะอาด
+                    </li>
+
+                    <li>
+                        จำนวนห้องที่มีพัฒนาการ
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INDICATORS -->
+
+<section>
+
+    <div class="section-head">
+
+        <span class="tag">
+            📈 INDICATORS
+        </span>
+
+        <h2>
+            ตัวชี้วัดความสำเร็จ
+        </h2>
+
+        <p>
+            เน้นวัดผลจากข้อมูลที่สามารถติดตามได้จริง
+        </p>
+
+    </div>
+
+
+    <div class="indicator-grid">
+
+        <div class="indicator">
+
+            <h3>
+                🗑️ ถังขยะล้น
+            </h3>
+
+            <p>
+                ติดตามจำนวนครั้งที่พบถังขยะเต็ม
+                ก่อนและหลังปรับระบบ
+            </p>
+
+        </div>
+
+
+        <div class="indicator">
+
+            <h3>
+                📍 ขยะตกค้าง
+            </h3>
+
+            <p>
+                ตรวจจำนวนจุดที่มีขยะตกค้าง
+                และดูว่าจำนวนลดลงหรือไม่
+            </p>
+
+        </div>
+
+
+        <div class="indicator">
+
+            <h3>
+                ♻️ รีไซเคิล
+            </h3>
+
+            <p>
+                ติดตามปริมาณขยะที่สามารถแยก
+                และนำกลับมาใช้ประโยชน์ได้
+            </p>
+
+        </div>
+
+
+        <div class="indicator">
+
+            <h3>
+                🏫 ผลตรวจอาคาร
+            </h3>
+
+            <p>
+                เปรียบเทียบผลตรวจความสะอาด
+                ของแต่ละอาคารในแต่ละช่วงเวลา
+            </p>
+
+        </div>
+
+
+        <div class="indicator">
+
+            <h3>
+                ⭐ ห้องที่พัฒนาขึ้น
+            </h3>
+
+            <p>
+                ดูจำนวนห้องที่มีพัฒนาการ
+                จากข้อมูลก่อนหน้า
+            </p>
+
+        </div>
+
+
+        <div class="indicator">
+
+            <h3>
+                💡 ข้อเสนอจากนักเรียน
+            </h3>
+
+            <p>
+                วัดการมีส่วนร่วมผ่านจำนวนแนวคิด
+                และข้อเสนอที่นำไปทดลองจริง
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL MESSAGE -->
+
+<section>
+
+    <div
+        style="
+        max-width:1000px;
+        margin:auto;
+        background:
+        linear-gradient(135deg,var(--green),var(--purple));
+        color:white;
+        border-radius:30px;
+        padding:55px 35px;
+        text-align:center;
+        box-shadow:var(--shadow);
+        "
+    >
+
+        <div style="font-size:50px;">
+            🌱
+        </div>
+
+        <h2 style="font-size:35px;margin-bottom:15px;">
+            เป้าหมายของเรา
+        </h2>
+
+        <p
+            style="
+            font-size:18px;
+            line-height:1.9;
+            max-width:750px;
+            margin:auto;
+            "
+        >
+            ไม่ใช่แค่ทำให้โรงเรียนสะอาด
+            แต่ทำให้การรักษาความสะอาด
+            กลายเป็นพฤติกรรมที่ทุกคนทำได้ทุกวัน
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- DETAIL : DATA -->
+
+<section
+    id="page-data"
+    class="detail-page"
+>
+
+    <div class="detail-box">
+
+        <button
+            class="back-btn"
+            onclick="goHome()"
+        >
+            ← กลับหน้าหลัก
+        </button>
+
+        <h1>
+            📊 ข้อมูลและสถิติ
+        </h1>
+
+        <p>
+            จากการตรวจความสะอาดช่วงเดือนสิงหาคม–กันยายน 2569
+            มีการตรวจทั้งหมด 81 ครั้ง
+            พบปัญหา 46 ครั้ง และเรียบร้อย 35 ครั้ง
+        </p>
+
+        <br>
+
+        <ul>
+
+            <li>
+                พบปัญหาคิดเป็น 56.8%
+            </li>
+
+            <li>
+                อาคาร 1 พบปัญหา 52.6%
+            </li>
+
+            <li>
+                อาคาร 2 พบปัญหา 84.2%
+            </li>
+
+            <li>
+                อาคาร 3 พบปัญหา 0%
+            </li>
+
+            <li>
+                อาคาร 4 พบปัญหา 44.4%
+            </li>
+
+            <li>
+                อาคาร 5 พบปัญหา 64%
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- DETAIL : SYSTEM -->
+
+<section
+    id="page-system"
+    class="detail-page"
+>
+
+    <div class="detail-box">
+
+        <button
+            class="back-btn"
+            onclick="goHome()"
+        >
+            ← กลับหน้าหลัก
+        </button>
+
+        <h1>
+            🗑️ ระบบจัดการขยะ
+        </h1>
+
+        <p>
+            โรงเรียนมีระบบจัดการขยะอยู่แล้ว
+            เช่น ถังขยะ จุดพักขยะ การแยกขยะ
+            การรีไซเคิล และการประสานรถขยะ
+        </p>
+
+        <br>
+
+        <p>
+            ประเด็นที่ควรพัฒนาคือการจัดการระหว่างรอการเก็บ
+            เนื่องจากรถขยะเข้ามาเก็บประมาณเดือนละ 2 ครั้ง
+            ทำให้บางช่วงมีขยะสะสม
+        </p>
+
+        <br>
+
+        <h3 style="color:var(--purple)">
+            แนวทางที่ควรพิจารณา
+        </h3>
+
+        <ul>
+
+            <li>
+                ลดขยะตั้งแต่ต้นทาง
+            </li>
+
+            <li>
+                สำรวจจุดที่ถังเต็มเร็ว
+            </li>
+
+            <li>
+                ปรับรอบการรวบรวมขยะภายในโรงเรียน
+            </li>
+
+            <li>
+                เพิ่มการแยกขยะและรีไซเคิล
+            </li>
+
+            <li>
+                จัดการเศษอาหารและใบไม้ให้เหมาะสม
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- DETAIL : SOLUTIONS -->
+
+<section
+    id="page-solutions"
+    class="detail-page"
+>
+
+    <div class="detail-box">
+
+        <button
+            class="back-btn"
+            onclick="goHome()"
+        >
+            ← กลับหน้าหลัก
+        </button>
+
+        <h1>
+            💡 แนวทางแก้ไข
+        </h1>
+
+        <ul>
+
+            <li>
+                ลดขยะตั้งแต่ต้นทาง เช่น ลดวัสดุใช้ครั้งเดียว
+            </li>
+
+            <li>
+                ส่งเสริมการใช้ภาชนะส่วนตัว
+            </li>
+
+            <li>
+                แยกขยะก่อนทิ้ง
+            </li>
+
+            <li>
+                เพิ่มประสิทธิภาพการรีไซเคิล
+            </li>
+
+            <li>
+                สำรวจจุดที่มีปัญหาซ้ำ ๆ
+            </li>
+
+            <li>
+                ปรับรอบการรวบรวมขยะตามข้อมูลจริง
+            </li>
+
+            <li>
+                จัดการเศษอาหารและใบไม้
+            </li>
+
+            <li>
+                ใช้แรงจูงใจเชิงบวกเพื่อสร้างพฤติกรรมที่ต่อเนื่อง
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- DETAIL : MOTIVATION -->
+
+<section
+    id="page-motivation"
+    class="detail-page"
+>
+
+    <div class="detail-box">
+
+        <button
+            class="back-btn"
+            onclick="goHome()"
+        >
+            ← กลับหน้าหลัก
+        </button>
+
+        <h1>
+            🏆 แรงจูงใจนักเรียน
+        </h1>
+
+        <p>
+            แนวคิดสำคัญคือการทำให้นักเรียนรู้สึกว่า
+            การรักษาความสะอาดเป็นสิ่งที่มีคุณค่า
+            และได้รับการมองเห็น
+        </p>
+
+        <br>
+
+        <ul>
+
+            <li>
+                ห้องเรียนพัฒนาดีเด่น
+            </li>
+
+            <li>
+                บอร์ดชื่นชม
+            </li>
+
+            <li>
+                ห้องต้นแบบ
+            </li>
+
+            <li>
+                คะแนนหรือระดับพัฒนาการ
+            </li>
+
+            <li>
+                เปิดรับแนวคิดจากนักเรียน
+            </li>
+
+            <li>
+                ประกาศชื่นชมกลุ่มที่มีส่วนร่วม
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<!-- DETAIL : PLAN -->
+
+<section
+    id="page-plan"
+    class="detail-page"
+>
+
+    <div class="detail-box">
+
+        <button
+            class="back-btn"
+            onclick="goHome()"
+        >
+            ← กลับหน้าหลัก
+        </button>
+
+        <h1>
+            📅 แผนดำเนินงาน 4 สัปดาห์
+        </h1>
+
+        <br>
+
+        <h3 style="color:var(--purple)">
+            สัปดาห์ที่ 1 — สำรวจ
+        </h3>
+
+        <p>
+            เก็บข้อมูลจุดที่มีปัญหาและช่วงเวลาที่เกิดปัญหา
+        </p>
+
+        <br>
+
+        <h3 style="color:var(--purple)">
+            สัปดาห์ที่ 2 — ทดลอง
+        </h3>
+
+        <p>
+            ทดลองมาตรการในพื้นที่นำร่อง 1–2 จุด
+            พร้อมบันทึกผลรายวัน
+        </p>
+
+        <br>
+
+        <h3 style="color:var(--purple)">
+            สัปดาห์ที่ 3 — ปรับระบบ
+        </h3>
+
+        <p>
+            นำข้อมูลมาปรับวิธีการ
+            และขยายวิธีที่ได้ผล
+        </p>
+
+        <br>
+
+        <h3 style="color:var(--purple)">
+            สัปดาห์ที่ 4 — ประเมินผล
+        </h3>
+
+        <p>
+            เปรียบเทียบข้อมูลก่อนและหลัง
+            แล้วสรุปแนวทางสำหรับดำเนินการต่อ
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-logos">
+
+        <img
+            src="school-logo.png"
+            alt="โลโก้โรงเรียน"
+        >
+
+        <img
+            src="council-logo.png"
+            alt="โลโก้สภานักเรียน"
+        >
+
+    </div>
+
+    <h2>
+        โรงเรียนศรีเมืองวิทยาคาร
+    </h2>
+
+    <p>
+        Green School Project
+        | สภานักเรียน
+    </p>
+
+    <p style="margin-top:10px;">
+        🌱 ร่วมกันสร้างโรงเรียนที่สะอาด น่าอยู่ และยั่งยืน
+    </p>
+
+</footer>
+
+
+<script>
+
+function hideAllPages(){
+
+    document
+        .querySelectorAll('.detail-page')
+        .forEach(page=>{
+            page.classList.remove('active');
+        });
+
+    document.getElementById('home').style.display='none';
+
+    window.scrollTo({
+        top:0,
+        behavior:'instant'
+    });
+}
+
+
+function showPage(page){
+
+    hideAllPages();
+
+    const target =
+        document.getElementById('page-'+page);
+
+    if(target){
+        target.classList.add('active');
+    }
+
+}
+
+
+function goHome(){
+
+    document
+        .querySelectorAll('.detail-page')
+        .forEach(page=>{
+            page.classList.remove('active');
+        });
+
+    document.getElementById('home').style.display='block';
+
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+
+}
+
+
+function toggleMenu(){
+
+    const nav =
+        document.querySelector('.nav-links');
+
+    if(nav.style.display==='flex'){
+        nav.style.display='';
+    }else{
+        nav.style.display='flex';
+
+        nav.style.position='absolute';
+        nav.style.top='70px';
+        nav.style.right='15px';
+
+        nav.style.background='white';
+        nav.style.padding='10px';
+
+        nav.style.borderRadius='15px';
+
+        nav.style.flexDirection='column';
+
+        nav.style.boxShadow=
+            '0 10px 30px rgba(0,0,0,.15)';
+    }
+
+}
+
+</script>
+
+</body>
+</html>
