@@ -1046,17 +1046,16 @@ footer p{
         <div class="brand-logos">
 
             <img
-                src="school-logo.png"
-                class="logo"
-                alt="โลโก้โรงเรียน"
-            >
+  src="IMG_4110.jpeg"
+  class="logo"
+  alt="โลโก้โรงเรียน"
+>
 
-            <img
-                src="council-logo.png"
-                class="logo"
-                alt="โลโก้สภานักเรียน"
-            >
-
+<img
+  src="IMG_4111.jpeg"
+  class="logo"
+  alt="โลโก้สภานักเรียน"
+>
         </div>
 
         <div class="brand-text">
