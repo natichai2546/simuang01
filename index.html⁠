@@ -1045,18 +1045,10 @@ footer p{
 
         <div class="brand-logos">
 
-            <img
-  src="IMG_4110.jpeg"
-  class="logo"
-  alt="โลโก้โรงเรียน"
->
+          <img src="./IMG_4110.jpeg" class="logo" alt="โลโก้โรงเรียน">
 
-<img
-  src="IMG_4111.jpeg"
-  class="logo"
-  alt="โลโก้สภานักเรียน"
->
-        </div>
+<img src="./IMG_4111.jpeg" class="logo" alt="โลโก้สภานักเรียน">
+
 
         <div class="brand-text">
             <strong>Green School</strong>
